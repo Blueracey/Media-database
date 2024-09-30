@@ -4,7 +4,7 @@ function Navbar() {
 //nagiation bar links to all three of the pages 
     return (
         <nav>  
-            <div>
+            <div class = "navBar">
 
 
                

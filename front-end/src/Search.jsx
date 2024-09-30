@@ -23,8 +23,8 @@ return(
 
                     <label>
                     <div>{item.searchResult}</div>
-                    <div>{item.reviewAverage}</div>
-                    <div>{item.totalReviews}</div>
+                    <div>Review average {item.reviewAverage}</div>
+                    <div>Total Reviews {item.totalReviews}</div>
                     </label>
 
 
