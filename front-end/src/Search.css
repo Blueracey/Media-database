@@ -7,3 +7,11 @@
     font-size: calc(10px + 2vmin);
     color: white;
   }
+
+
+  label{ 
+    display: flex;
+    flex-direction: row;
+    row-gap: 10px;
+    background-color: red;
+  }
