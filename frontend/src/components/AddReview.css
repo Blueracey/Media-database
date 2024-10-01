@@ -1,0 +1,102 @@
+/* css for add review */
+
+.add-review {
+    margin: 20px;
+    padding: 30px;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: black; 
+    font-family: Bell MT;
+}
+
+.add-review h2 {
+    margin-bottom: 15px;
+    color: black;
+    font-family: Bell mt;
+    font-size: 40px;
+}
+
+.add-review form div {
+    margin-bottom: 15px;
+}
+
+.add-review label {
+    display: block;
+    margin-bottom: 5px;
+    color: black; 
+    font-family: Bell Mt;
+    font-size: 25px;
+}
+
+.add-review textarea {
+    width: 100%;
+    height: 100px;
+    color: black; 
+    font-family: Bell Mt;
+    font-size: 25px;
+}
+
+.add-review input[type="text"],
+.add-review input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+    font-family: Bell Mt; 
+    font-size: 20px;  
+}
+
+.star-rating {
+    justify-content: center; 
+    margin: 10px 0; 
+}
+
+.star {
+    font-size: 40px;
+    cursor: pointer;
+    color: grey;
+    transition: color 0.2s;
+}
+
+.star.selected {
+    color: gold;
+}
+
+.reviews-list {
+    margin-top: 20px;
+}
+
+.reviews-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.reviews-list li {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: black; 
+    font-family: Bell mt;
+    font-size: 20px;
+}
+
+
+.add-review button {
+    background-color: blue; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-family: 'Bell MT', sans-serif; 
+    font-size: 16px; 
+    transition: background-color 0.3s; 
+}
+
+.add-review button:hover {
+    background-color: darkblue; 
+}
