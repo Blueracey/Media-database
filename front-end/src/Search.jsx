@@ -14,16 +14,43 @@ export default function Search() {
     const [DataSearch,SetSearchData] = useState([
 
         {searchResult: "Minecraft", id:1 ,reviewAverage:3, totalReviews:4},
-        {searchResult: "Terreria", id:1 ,reviewAverage:3, totalReviews:4}
+        {searchResult: "Terreria", id:1 ,reviewAverage:3, totalReviews:4},
+        {searchResult: "Minefelet", id:1 ,reviewAverage:3, totalReviews:4}
 
     ])
+   
 
 
-
+    
     function SearchUpdate(event) {
 
         setSearchInput(event.target.value)
-        console.log(SearchInput)
+        
+    }
+
+    function anyResults(){
+        let loop = DataSearch.length;
+    let matchingResults = [];
+
+
+    for (let i = 0; i < loop; i++) {
+        if (DataSearch[i].searchResult.toLowerCase().includes(SearchInput.toLowerCase())) {
+            matchingResults.push(DataSearch[i]);
+        }
+    }
+
+
+    setSearch(matchingResults); 
+
+            
+        
+        
+    }
+
+
+    function RunSearch(){
+
+        anyResults()
     }
 
 
@@ -34,7 +61,7 @@ return(
             <h1>Search</h1>
 
                 <input onChange={SearchUpdate}/>
-        
+                <button onClick= {RunSearch}>GO </button>
 
         <ul> 
             {itemsSearch.map((item) => (
