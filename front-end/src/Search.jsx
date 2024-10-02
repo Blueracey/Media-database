@@ -3,18 +3,37 @@ import "./Search.css"
 
 export default function Search() {
 
+    const [SearchInput, setSearchInput] = useState("")
+
     const [itemsSearch, setSearch] = useState([
 
-        {searchResult: "placeholder", id:1 ,reviewAverage:3, totalReviews:4},
-        {searchResult: "placeholder", id:1 ,reviewAverage:3, totalReviews:4}
+        
     ])
+
+
+    const [DataSearch,SetSearchData] = useState([
+
+        {searchResult: "Minecraft", id:1 ,reviewAverage:3, totalReviews:4},
+        {searchResult: "Terreria", id:1 ,reviewAverage:3, totalReviews:4}
+
+    ])
+
+
+
+    function SearchUpdate(event) {
+
+        setSearchInput(event.target.value)
+        console.log(SearchInput)
+    }
+
+
 return( 
 
     <body>
         <div class = "core" >
             <h1>Search</h1>
 
-                <input/>
+                <input onChange={SearchUpdate}/>
         
 
         <ul> 
