@@ -2,20 +2,20 @@ import { useState } from "react"
 import "./Search.css"
 
 export default function Search() {
-
+    // input variable  
     const [SearchInput, setSearchInput] = useState("")
-
+    //visible array 
     const [itemsSearch, setSearch] = useState([
 
         
     ])
 
-
+    // dummy data
     const [DataSearch,SetSearchData] = useState([
 
-        {searchResult: "Minecraft", id:1 ,reviewAverage:3, totalReviews:4},
-        {searchResult: "Terreria", id:1 ,reviewAverage:3, totalReviews:4},
-        {searchResult: "Minefelet", id:1 ,reviewAverage:3, totalReviews:4}
+        {searchResult: "Minecraft", id:1 ,reviewAverage:4, totalReviews:3},
+        {searchResult: "Terreria", id:2 ,reviewAverage:4, totalReviews:4},
+        {searchResult: "Minefelet", id:3 ,reviewAverage:3, totalReviews:6}
 
     ])
    
@@ -27,31 +27,29 @@ export default function Search() {
         setSearchInput(event.target.value)
         
     }
-
-    function anyResults(){
+    //checks through the Server Data 
+    function Results(){
         let loop = DataSearch.length;
-    let matchingResults = [];
+        let matchingResults = [];
 
 
-    for (let i = 0; i < loop; i++) {
-        if (DataSearch[i].searchResult.toLowerCase().includes(SearchInput.toLowerCase())) {
+        for (let i = 0; i < loop; i++)
+             {
+            if (DataSearch[i].searchResult.toLowerCase().includes(SearchInput.toLowerCase())) 
+            {
             matchingResults.push(DataSearch[i]);
+            }
         }
+
+
+        setSearch(matchingResults); 
+
+
     }
 
-
-    setSearch(matchingResults); 
-
-            
-        
-        
-    }
+    
 
 
-    function RunSearch(){
-
-        anyResults()
-    }
 
 
 return( 
@@ -61,16 +59,16 @@ return(
             <h1>Search</h1>
 
                 <input onChange={SearchUpdate}/>
-                <button onClick= {RunSearch}>GO </button>
+                <button onClick= {Results}>GO </button>
 
         <ul> 
             {itemsSearch.map((item) => (
                 <div key={item}>
 
                     <label>
-                    <div>{item.searchResult}</div>
-                    <div>Review average {item.reviewAverage}</div>
-                    <div>Total Reviews {item.totalReviews}</div>
+                        <div>{item.searchResult}</div>
+                        <div>Review average {item.reviewAverage}</div>
+                        <div>Total Reviews {item.totalReviews}</div>
                     </label>
 
 
