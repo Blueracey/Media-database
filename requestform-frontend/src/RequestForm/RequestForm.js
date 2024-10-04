@@ -15,13 +15,37 @@ function RequestForm() {
       {/* Button to open popup */}
       <button onClick={togglePopup}>Open Request Form</button>
 
-      {/* Conditional show of popup */}
+      {/* Modal  popup */}
       {isOpen && (
-        <div className="popup">
-          <div className="popup-content">
-            <button className="close-button" onClick={togglePopup}>X</button>
-            {/* Next Step */}
-            <p>Next Area</p>
+        <div className="modal-overlay">
+          <div className="modal-content">
+            
+            {/* Request Form */}
+            <h2>Request Form</h2>
+
+            {/* Dropdown for type of Request */}
+            <label>Request Type:</label>
+            <select>
+              <option>New Media</option>
+              <option>Feature</option>
+              <option>Bug Report</option>
+              <option>Suggestion</option>
+              <option>Other</option>
+            </select>
+
+            {/* Title input */}
+            <label>Title:</label>
+            <input type="text" name="title" placeholder="Enter title here" />
+
+            {/* Details text */}
+            <label>Details:</label>
+            <textarea name="details" placeholder="Enter details here" />
+
+            {/* Form buttons */}
+            <div className="form-buttons">
+              <button type="button" onClick={togglePopup}>Cancel</button>
+              <button type="button" onClick={togglePopup}>Complete</button>
+            </div>
           </div>
         </div>
       )}
