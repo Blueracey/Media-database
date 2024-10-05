@@ -1,0 +1,86 @@
+ /* Reset some basic styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 400px; 
+    margin: auto; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: whitesmoke; 
+  }
+  
+  h2 {
+    text-align: center; 
+    color: #333; 
+  }
+  
+  .form-label {
+    font-weight: bold; 
+    color: #555; 
+  }
+  
+  .input-field {
+    margin-bottom: 15px; 
+  }
+  
+  .form-control {
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%; 
+    box-sizing: border-box; 
+    transition: border-color 0.3s; 
+  }
+  
+  .form-control:focus {
+    border-color: #007bff; 
+    outline: none; 
+  }
+  
+  .btn {
+    width: 100%; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+  }
+  
+  .btn-primary {
+    background-color: #007bff; 
+    color: #ffffff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; 
+  }
+  
+  .text-danger {
+    color: #dc3545; 
+    margin-top: 10px; 
+  }
+  
+  .text-success {
+    color: #28a745; 
+    margin-top: 10px; 
+  }
+  
+  .btn-link {
+    background: none; 
+    border: none;
+    color: #007bff; 
+    text-decoration: underline; 
+    cursor: pointer; 
+    font-size: 14px; 
+  }
+  
+  .btn-link:hover {
+    color: #0056b3; 
+  }
+  
