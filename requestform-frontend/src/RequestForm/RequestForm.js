@@ -25,7 +25,7 @@ function RequestForm() {
 
             {/* Dropdown for type of Request */}
             <label>Request Type:</label>
-            <select>
+            <select className="full-width">
               <option>New Media</option>
               <option>Feature</option>
               <option>Bug Report</option>
@@ -35,11 +35,11 @@ function RequestForm() {
 
             {/* Title input */}
             <label>Title:</label>
-            <input type="text" name="title" placeholder="Enter title here" />
+            <input type="text" name="title" className="full-width" placeholder="Enter title here" />
 
             {/* Details text */}
             <label>Details:</label>
-            <textarea name="details" placeholder="Enter details here" />
+            <textarea name="details" className="full-width" placeholder="Enter details here" />
 
             {/* Form buttons */}
             <div className="form-buttons">
