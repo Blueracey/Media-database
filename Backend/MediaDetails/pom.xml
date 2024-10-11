@@ -1,0 +1,34 @@
+<dependencies>
+	<!-- Spring Boot Starter Web -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+
+	<!-- Spring Data JDBC (not JPA) -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jdbc</artifactId>
+	</dependency>
+
+	<!-- MySQL JDBC Driver -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-j</artifactId>
+		<scope>runtime</scope>
+	</dependency>
+
+	<!-- Lombok (for boilerplate code generation) -->
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<scope>provided</scope>
+	</dependency>
+
+	<!-- Spring Boot Starter Test -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+	</dependency>
+</dependencies>
