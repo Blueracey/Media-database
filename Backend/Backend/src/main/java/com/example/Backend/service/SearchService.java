@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import com.example.Backend.repository.IRepository;
+import com.example.Backend.repository.SearchRepository;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -18,24 +18,24 @@ public class  SearchService {
 
 
     @Autowired
-    IRepository repository;
+    SearchRepository searchRepository;
 
     
     public List<Search> getAllSearchs() {
 
-        return repository.findAll();
+        return searchRepository.findAll();
     }
 
     
 
     public Optional<Search> getSearchById(int id) {
-        return repository.findById(id);
+        return searchRepository.findById(id);
     }
 
     
     public Search createSearch(@RequestBody Search search){
 
-        return repository.save(search);
+        return searchRepository.save(search);
     }
 }
 

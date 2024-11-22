@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IRepository extends JpaRepository<Search, Integer> {
+public interface SearchRepository extends JpaRepository<Search, Integer> {
 }
