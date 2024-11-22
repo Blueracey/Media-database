@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping( "/api/v1/search")
+@RequestMapping("/api/v1/search")
 public class SearchController {
 
     @Autowired
@@ -24,7 +24,11 @@ public class SearchController {
         return searchService.getAllSearchs();
     }
 
-
+    @PostMapping
+    public Search createSearch(@RequestBody Search search){
+ 
+        return searchService.createSearch(search);
+    }
 
 
 }

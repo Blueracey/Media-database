@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./Search.css"
+import axios from 'axios'
 
 export default function Search() {
     // input variable  
@@ -10,6 +11,10 @@ export default function Search() {
         
     ])
 
+
+    
+
+
     // dummy data
     const [DataSearch,SetSearchData] = useState([
 
@@ -19,7 +24,7 @@ export default function Search() {
 
     ])
    
-
+    
 
     
     function SearchUpdate(event) {
