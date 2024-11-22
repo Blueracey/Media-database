@@ -85,7 +85,7 @@ return(
                     <label>
                         <div>{item.name}</div>
                         <div>Review average {item.reviewAverage}</div>
-                        <div>Total Reviews {item.totalReviews}</div>
+                        <div>Total Reviews {item.reviewCount}</div>
                     </label>
 
 
