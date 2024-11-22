@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect ,useState } from "react"
 import "./Search.css"
 import axios from 'axios'
 
@@ -6,25 +6,32 @@ export default function Search() {
     // input variable  
     const [SearchInput, setSearchInput] = useState("")
     //visible array 
-    const [itemsSearch, setSearch] = useState([
-
-        
-    ])
+    const [itemsSearch, setSearch] = useState([])
 
 
     
 
 
     // dummy data
-    const [DataSearch,SetSearchData] = useState([
+    const [DataSearch,SetSearchData] = useState([])
+    useEffect(() => {
+        const fetchProject = async () => {
+            try {
+                const responce = await axios.get('http://localhost:8091/api/v1/search');
 
-        {searchResult: "Minecraft", id:1 ,reviewAverage:4, totalReviews:3},
-        {searchResult: "Terreria", id:2 ,reviewAverage:4, totalReviews:4},
-        {searchResult: "Minefelet", id:3 ,reviewAverage:3, totalReviews:6}
+                SetSearchData(responce.data);
 
-    ])
-   
+            } catch (error) {
+                console.error('Error fetching Midia', error);
+                
+            }
+        };
+        fetchProject();
+    }, []);
+
     
+   
+
 
     
     function SearchUpdate(event) {
@@ -36,13 +43,13 @@ export default function Search() {
     function Results(){
         let loop = DataSearch.length;
         let matchingResults = [];
-
-
-        for (let i = 0; i < loop; i++)
+        let data = DataSearch.map(sort);
+        console.log(data[1].name)
+       for (let i = 0; i < loop; i++)
              {
-            if (DataSearch[i].searchResult.toLowerCase().includes(SearchInput.toLowerCase())) 
+            if (data[i][0].toLowerCase().includes(SearchInput.toLowerCase())) //checks the data  column of i on 0 which is the name row
             {
-            matchingResults.push(DataSearch[i]);
+            matchingResults.push(DataSearch[i]); //appends the results to a 
             }
         }
 
@@ -51,6 +58,11 @@ export default function Search() {
 
 
     }
+
+
+        function sort(item){
+            return[item.name,item.reviewAverage,item.reviewCount]
+        }
 
     
 
@@ -71,7 +83,7 @@ return(
                 <div key={item}>
 
                     <label>
-                        <div>{item.searchResult}</div>
+                        <div>{item.name}</div>
                         <div>Review average {item.reviewAverage}</div>
                         <div>Total Reviews {item.totalReviews}</div>
                     </label>

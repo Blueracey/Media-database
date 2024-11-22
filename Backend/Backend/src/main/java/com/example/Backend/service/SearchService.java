@@ -22,7 +22,7 @@ public class  SearchService {
 
     
     public List<Search> getAllSearchs() {
-        System.out.println("this is what is being called");
+
         return repository.findAll();
     }
 
