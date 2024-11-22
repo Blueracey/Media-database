@@ -28,9 +28,9 @@ public class  SearchService {
 
     
 
-    //public Optional<Search> getSearchById(int id) {
-     //   return repository.findById(id);
-    //}
+    public Optional<Search> getSearchById(int id) {
+        return repository.findById(id);
+    }
 
     
     public Search createSearch(@RequestBody Search search){

@@ -1,10 +1,12 @@
 package com.example.Backend.controller;
 
 
+import com.example.Backend.Exceptions.ResourceNotFoundException;
 import com.example.Backend.entity.Search;
 import com.example.Backend.service.SearchService;
 import org.springdoc.core.service.RequestBodyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,9 +25,14 @@ public class SearchController {
     public List<Search> getAllSearch() {
         return searchService.getAllSearchs();
     }
+    @GetMapping("{id}")
+    public ResponseEntity<Search> getSearchById(@PathVariable  int id){
+        Search search = searchService.getSearchById(id).orElseThrow(() -> new ResourceNotFoundException("Search was invalid" +id));
+        return ResponseEntity.ok(search);
+    } //https://www.youtube.com/watch?v=aCZmPgBHc88
 
     @PostMapping
-    public Search createSearch(@RequestBody Search search){
+    public Search createSearch(@RequestBody Search search){ 
  
         return searchService.createSearch(search);
     }
