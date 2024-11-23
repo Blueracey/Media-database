@@ -88,10 +88,11 @@ return(
             {itemsSearch.map((item) => (
                 <div key={item}>
 
-                    <label onClick={goToDescription(item.SearchId)}>
-                        <div>{item.name}</div>
+                    <label >
+                        <div >{item.name}</div>
                         <div>Review average {item.reviewAverage}</div>
                         <div>Total Reviews {item.reviewCount}</div>
+                        <button onClick={() =>goToDescription(item.reviewId)}> test</button>
                     </label>
 
 
