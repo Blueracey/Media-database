@@ -6,6 +6,7 @@ import com.example.Backend.entity.Search;
 import com.example.Backend.service.SearchService;
 import org.springdoc.core.service.RequestBodyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,7 +49,7 @@ public class SearchController {
 
         Search newSearch = searchService.getSearchById(id)
         .orElseThrow(()-> new ResourceNotFoundException("Search was invalid" + id));
-        //newSearch.setId(id);
+        
         newSearch.setName(searchinfo.getName());
         newSearch.setReviewId(searchinfo.getReviewId());
 
@@ -56,6 +57,20 @@ public class SearchController {
 
         return ResponseEntity.ok(newSearch);
 
+
+    }
+
+    //delete endpoint 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteSearch (@PathVariable int id){
+
+        Search newSearch = searchService.getSearchById(id)
+        .orElseThrow(()-> new ResourceNotFoundException("Search was invalid" +id));
+
+
+        searchService.deleteSearch(newSearch);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
     }
 

@@ -2,6 +2,7 @@ package com.example.Backend.service;
 
 import com.example.Backend.entity.Search;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
@@ -37,7 +38,32 @@ public class  SearchService {
 
         return searchRepository.save(search);
     }
+
+    public void deleteSearch(Search search) {
+        searchRepository.delete(search);
+    }
+
+
+     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
