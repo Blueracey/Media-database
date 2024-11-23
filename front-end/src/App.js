@@ -11,6 +11,9 @@ function App() {
         <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path = "search" element ={<Search/>} />
+
+
+        {/* <Route path = "description" element = {<Description/>} />  uncomment this and add the proper file name to link from search   */}
   
   
       
