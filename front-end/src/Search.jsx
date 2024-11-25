@@ -68,7 +68,7 @@ export default function Search() {
             return[item.name,item.reviewAverage,item.reviewCount,item.reviewId]
         }
         function goToDescription(id) {
-            navigate(`/Description/${id}`) //wil redirect to the description page once that exsists and we have un commented the router for it 
+            navigate(`/details/${id}`) //wil redirect to the description page once that exsists and we have un commented the router for it 
         }
 
     

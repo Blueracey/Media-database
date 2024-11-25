@@ -5,6 +5,7 @@ import Home from "./Home";
 import Search from "./Search";
 import AdminSignIn from "./Admin/adminSignIn";
 import AdminChoice from "./Admin/adminChoice";
+import MDetails from "./MDetails/MDetails";
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
         <Route path = "search" element ={<Search/>} />
         <Route path = "adminSignIn" element={<AdminSignIn/>} />
         <Route  path = "adminChoice" element = {<AdminChoice/>} />
+        <Route path="details/:id" element={<MDetails />} />
 
         {/* <Route path = "description" element = {<Description/>} />  uncomment this and add the proper file name to link from search   */}
   
