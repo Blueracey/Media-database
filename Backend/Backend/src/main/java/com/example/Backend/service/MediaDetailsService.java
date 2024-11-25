@@ -27,6 +27,7 @@ public class MediaDetailsService {
 
         // Fetch reviews for the given Media ID
         List<Review> reviews = reviewRepository.findByMediaDetailsId(mediaId);
+        System.out.println("Fetched reviews: " + reviews);
 
         // Calculate review average
         OptionalDouble averageRating = reviews.stream()

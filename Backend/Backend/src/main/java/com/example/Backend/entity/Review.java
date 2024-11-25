@@ -17,7 +17,7 @@ public class Review {
     private int rating;
 
     @ManyToOne
-    @JoinColumn(name = "media_id", nullable = false)
+    @JoinColumn(name = "media_id", nullable = false) // Foreign key
     private MediaDetails mediaDetails;
 
     // Getters and Setters
