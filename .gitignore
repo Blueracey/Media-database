@@ -1,0 +1,12 @@
+# Ignore IntelliJ IDEA project files
+.idea/
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore zip files
+*.zip
+
+# Ignore other system or temp files
+*.DS_Store
+*.log
