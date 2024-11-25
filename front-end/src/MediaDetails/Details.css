@@ -1,0 +1,60 @@
+.media-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+.media-header {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.media-picture {
+  flex: 1; /* Ensures the picture takes up all available space */
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  border: 2px solid blue;
+  max-width: 200px;
+  height: 200px; /* Adjust height to make it square */
+}
+
+.media-info {
+  flex: 2; /* Adjusts remaining space for media information */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.media-description {
+  width: 100%;
+  background-color: lightgray;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+.media-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack reviews and actions vertically */
+  gap: 10px;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column; /* Stack reviews vertically */
+  gap: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #222;
+  color: #fff;
+}
