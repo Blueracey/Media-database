@@ -21,35 +21,9 @@ public class Review {
     private MediaDetails mediaDetails;
 
     // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getReviewText() {
-        return reviewText;
-    }
-
-    public void setReviewText(String reviewText) {
-        this.reviewText = reviewText;
-    }
 
     public int getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public MediaDetails getMediaDetails() {
-        return mediaDetails;
-    }
-
-    public void setMediaDetails(MediaDetails mediaDetails) {
-        this.mediaDetails = mediaDetails;
-    }
 }

@@ -24,7 +24,4 @@ public class Search {
     @Column(nullable = false)
     private String Name;
 
-
-
-
 }
