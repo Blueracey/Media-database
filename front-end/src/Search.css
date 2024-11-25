@@ -9,7 +9,7 @@
   }
 
 
-  label{ 
+  .SearchData{ 
     display: flex;
     flex-direction: row;
     row-gap: 10px;

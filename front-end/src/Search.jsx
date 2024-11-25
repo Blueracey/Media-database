@@ -22,6 +22,7 @@ export default function Search() {
                 const responce = await axios.get('http://localhost:8091/api/v1/search');
 
                 SetSearchData(responce.data);
+                console.log(responce.data)
 
             } catch (error) {
                 console.error('Error fetching Midia', error);
@@ -88,7 +89,7 @@ return(
             {itemsSearch.map((item) => (
                 <div key={item}>
 
-                    <label >
+                    <label class = "SearchData">
                         <div >{item.name}</div>
                         <div>Review average {item.reviewAverage}</div>
                         <div>Total Reviews {item.reviewCount}</div>

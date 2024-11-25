@@ -3,6 +3,9 @@ import './App.css';
 import Layout from "./Nav/NavLayout";
 import Home from "./Home";
 import Search from "./Search";
+import AdminSignIn from "./Admin/adminSignIn";
+import AdminChoice from "./Admin/adminChoice";
+
 function App() {
   
     return (
@@ -11,11 +14,12 @@ function App() {
         <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path = "search" element ={<Search/>} />
-
+        <Route path = "adminSignIn" element={<AdminSignIn/>} />
+        <Route  path = "adminChoice" element = {<AdminChoice/>} />
 
         {/* <Route path = "description" element = {<Description/>} />  uncomment this and add the proper file name to link from search   */}
   
-  
+        
       
 
 
