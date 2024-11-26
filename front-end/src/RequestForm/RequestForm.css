@@ -1,0 +1,53 @@
+.request-form-container {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    background-color: #f9f9f9;
+  }
+  
+  .request-form-container h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .request-form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .request-form-container label {
+    margin: 10px 0 5px;
+    color: #555;
+  }
+  
+  .request-form-container select,
+  .request-form-container textarea,
+  .request-form-container button {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .request-form-container button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .request-form-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .request-form-container button[type="button"] {
+    background-color: #dc3545;
+  }
+  
+  .request-form-container button[type="button"]:hover {
+    background-color: #a71d2a;
+  }
+  
