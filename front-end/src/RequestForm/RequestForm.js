@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import axios for making HTTP requests
+import axios from "axios";
 import "./RequestForm.css";
 
 function RequestForm({ visible, onClose, loggedInUserId }) {
@@ -7,6 +7,7 @@ function RequestForm({ visible, onClose, loggedInUserId }) {
     const [requestType, setRequestType] = useState("Feature");
     const [details, setDetails] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,10 +27,15 @@ function RequestForm({ visible, onClose, loggedInUserId }) {
             title: title.trim(),
             media_type: requestType,
             details: details.trim(),
-            user_id: loggedInUserId, // Use dynamically provided logged-in user ID
+            // user_id: loggedInUserId, // Use dynamically provided logged-in user ID             // Commented out till User is Set up
         };
 
         try {
+            setIsSubmitting(true)
+
+             // Log request data for debugging
+             console.log("Request Data: ", requestData);
+
             //Axios POST request to backend
             const response = await axios.post("http://localhost:8091/api/requests", requestData);
             console.log("Request submitted successfully:", response.data);
@@ -48,6 +54,31 @@ function RequestForm({ visible, onClose, loggedInUserId }) {
         } catch (error) {
             console.error("Error submitting the request:", error);
             alert("Failed to submit the request. Please try again.");
+
+            // Enhanced error handling
+            if (error.response) {
+                // Server responded with a status code other than 2xx
+                console.error("Response Error:", error.response.data);
+                alert(`Server Error: ${error.response.data.message || "Unknown error"}`);
+            } else if (error.request) {
+                // No response received
+                console.error("Request Error:", error.request);
+                alert("No response received from the server.");
+            } else {
+                // Axios request setup issue
+                console.error("Axios Setup Error:", error.message);
+                alert("Request setup error. Please check your configuration.");
+            } try {
+                const response = await axios.post("http://localhost:8091/api/requests", requestData);
+                console.log("Request submitted successfully:", response.data);
+            } catch (error) {
+                console.error("Error submitting the request:", error.response?.data || error.message);
+                alert(`Server Error: ${error.response?.status} - ${error.response?.data || "Unknown error"}`);
+            }
+            
+            
+        } finally {
+            setIsSubmitting(false); // Re-enable submit button
         }
     };
 
@@ -80,15 +111,17 @@ function RequestForm({ visible, onClose, loggedInUserId }) {
                 <div className="request-form-field">
                     <label htmlFor="requestType">Request Type:</label>
                     <select
-                        id="requestType"
-                        value={requestType}
-                        onChange={(e) => setRequestType(e.target.value)}
-                    >
-                        <option value="Feature">Feature</option>
-                        <option value="Bug">Bug</option>
-                        <option value="Improvement">Improvement</option>
-                        <option value="Other">Other</option>
-                    </select>
+                    id="requestType"
+                    value={requestType}
+                    onChange={(e) => setRequestType(e.target.value)}
+                    required
+                >
+                    <option value="Feature">Feature</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Improvement">Improvement</option>
+                    <option value="Other">Other</option>
+                </select>
+
                 </div>
                 <div className="request-form-field">
                     <label htmlFor="details">Details:</label>

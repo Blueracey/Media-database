@@ -1,7 +1,12 @@
 package com.example.Backend.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import jakarta.validation.constraints.NotNull;
+import org.hibernate.annotations.CreationTimestamp;
+
+
+import java.sql.Timestamp;
+import java.util.Collection;
 
 @Entity
 @Table(name = "requests")
@@ -12,62 +17,48 @@ public class Request {
     private Long id;
 
     @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    @CreationTimestamp
+    private Timestamp createdAt;
 
     @Column(name = "media_type", nullable = false)
     private String mediaType;
 
     @Column(name = "title", nullable = false)
+    @NotNull(message = "Title is required")
     private String title;
 
-    @Column(name = "details", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "details", nullable = false)
+    @NotNull(message = "Details is required")
     private String details;
 
-    @Column(name = "user_id")
-    private Long userId;
+    // Commenting out the user field since User is not set up yet
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "user_id", referencedColumnName = "id", onDelete = SetNull)
+    // private User user;
 
     // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public String getMediaType() {
-        return mediaType;
-    }
-
-    public void setMediaType(String mediaType) {
-        this.mediaType = mediaType;
-    }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getDetails() {
         return details;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public Collection<Object> getMediaType() {
+        return java.util.List.of();
     }
 
-    public Long getUserId() {
-        return userId;
+    // Uncomment when User is set up
+    /*
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
+    */
 }
