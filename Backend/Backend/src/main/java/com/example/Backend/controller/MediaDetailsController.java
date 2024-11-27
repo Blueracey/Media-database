@@ -2,9 +2,11 @@ package com.example.Backend.controller;
 
 import com.example.Backend.entity.MediaDetails;
 import com.example.Backend.service.MediaDetailsService;
-import com.example.Backend.repository.MediaDetailsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/media")
@@ -16,20 +18,19 @@ public class MediaDetailsController {
         this.mediaDetailsService = mediaDetailsService;
     }
 
-    // Get Media Details including calculated fields (Review Average, Number of Reviews)
     @GetMapping("/{id}")
-    public MediaDetails getMediaDetails(@PathVariable Long id) {
-        return mediaDetailsService.getMediaDetailsWithReviews(id);
+    public ResponseEntity<MediaDetails> getMediaDetailsById(@PathVariable Long id) {
+        try {
+            MediaDetails mediaDetails = mediaDetailsService.getMediaDetailsWithReviews(id);
+            return ResponseEntity.ok(mediaDetails);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
-    @Autowired
-    private MediaDetailsRepository mediaDetailsRepository; // Inject the repository
-
-    @GetMapping("/test-db")
-    public String testDbConnection() {
-        // Call the repository's method using the injected instance
-        long count = mediaDetailsRepository.count();
-        return "Database contains " + count + " media records.";
+    @GetMapping("/all")
+    public ResponseEntity<List<MediaDetails>> getAllMediaDetails() {
+        List<MediaDetails> mediaDetailsList = mediaDetailsService.getAllMediaDetails();
+        return ResponseEntity.ok(mediaDetailsList);
     }
-
 }

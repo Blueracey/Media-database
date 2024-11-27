@@ -25,19 +25,22 @@ public class MediaDetailsService {
         MediaDetails mediaDetails = mediaDetailsRepository.findById(mediaId)
                 .orElseThrow(() -> new RuntimeException("Media not found with ID: " + mediaId));
 
-        // Fetch reviews for the given Media ID
         List<Review> reviews = reviewRepository.findByMediaDetailsId(mediaId);
-        System.out.println("Fetched reviews: " + reviews);
 
         // Calculate review average
         OptionalDouble averageRating = reviews.stream()
                 .mapToInt(Review::getRating)
                 .average();
 
-        // Set calculated fields in MediaDetails
+        // Set calculated fields
         mediaDetails.setReviewAverage(averageRating.isPresent() ? averageRating.getAsDouble() : 0.0);
         mediaDetails.setNumberOfReviews(reviews.size());
 
         return mediaDetails;
+    }
+
+    // Fetch all MediaDetails
+    public List<MediaDetails> getAllMediaDetails() {
+        return mediaDetailsRepository.findAll();
     }
 }
