@@ -91,7 +91,7 @@ return(
                 <div key={item}>
 
                     <label class = "SearchData">
-                        <div >{item.name}</div>
+                        <div >{item.title}</div>
                         <div>Review average {item.reviewAverage}</div>
                         <div>Total Reviews {item.reviewCount}</div>
                         <button onClick={() =>goToDescription(item.mediaDetails.id)}> test</button>
