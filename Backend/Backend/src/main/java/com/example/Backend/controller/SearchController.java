@@ -50,8 +50,8 @@ public class SearchController {
         Search newSearch = searchService.getSearchById(id)
         .orElseThrow(()-> new ResourceNotFoundException("Search was invalid" + id));
         
-        newSearch.setName(searchinfo.getName());
-        newSearch.setReviewId(searchinfo.getReviewId());
+        newSearch.setTitle(searchinfo.getTitle());
+        newSearch.setMediaDetails(searchinfo.getMediaDetails());
 
         searchService.createSearch(newSearch);
 

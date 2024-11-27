@@ -48,7 +48,7 @@ export default function Search() {
         let loop = DataSearch.length;
         let matchingResults = [];
         let data = DataSearch.map(sort);
-        
+       
        for (let i = 0; i < loop; i++)
              {
             if (data[i][0].toLowerCase().includes(SearchInput.toLowerCase())) //checks the data  column of i on 0 which is the name row
@@ -65,7 +65,8 @@ export default function Search() {
 
 
         function sort(item){
-            return[item.name,item.reviewAverage,item.reviewCount,item.reviewId]
+            console.log(item.mediaDetails.id)
+            return[item.title,item.reviewAverage,item.reviewCount,item.mediaDetails.id]
         }
         function goToDescription(id) {
             navigate(`/details/${id}`) //wil redirect to the description page once that exsists and we have un commented the router for it 
@@ -93,7 +94,7 @@ return(
                         <div >{item.name}</div>
                         <div>Review average {item.reviewAverage}</div>
                         <div>Total Reviews {item.reviewCount}</div>
-                        <button onClick={() =>goToDescription(item.reviewId)}> test</button>
+                        <button onClick={() =>goToDescription(item.mediaDetails.id)}> test</button>
                     </label>
 
 
