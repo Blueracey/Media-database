@@ -36,6 +36,7 @@ export default function MDetails() {
     if (error) return <div>{error}</div>;
 
     return (
+    <div class="core">
         <div className="details-container">
             <div className="details-header">
                 <div className="details-picture">
@@ -63,5 +64,6 @@ export default function MDetails() {
                 )}
             </div>
         </div>
+    </div>
     );
 }
