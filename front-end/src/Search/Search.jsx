@@ -2,7 +2,7 @@ import { useEffect ,useState } from "react"
 import "./Search.css"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
-import RequestForm from './RequestForm/RequestForm';
+import RequestForm from '../RequestForm/RequestForm';
 
 export default function Search() {
     // input variable  
@@ -87,6 +87,18 @@ return(
                 <button onClick= {Results}>GO </button>
 
         <ul> 
+
+        <label class = "SearchTitle">
+                        <div >Title</div>
+                        <div>Review average</div>
+                        <div>Total Reviews</div>
+                        
+                    </label>
+
+
+
+
+
             {itemsSearch.map((item) => (
                 <div key={item}>
 
@@ -94,7 +106,7 @@ return(
                         <div >{item.title}</div>
                         <div>Review average {item.reviewAverage}</div>
                         <div>Total Reviews {item.reviewCount}</div>
-                        <button onClick={() =>goToDescription(item.mediaDetails.id)}> test</button>
+                        <button onClick={() =>goToDescription(item.mediaDetails.id)}> Details</button>
                     </label>
 
 

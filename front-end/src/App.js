@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./Nav/NavLayout";
 import Home from "./Home";
-import Search from "./Search";
+import Search from "./Search/Search";
 import AdminSignIn from "./Admin/adminSignIn";
 import AdminChoice from "./Admin/adminChoice";
 import MDetails from "./MDetails/MDetails";
