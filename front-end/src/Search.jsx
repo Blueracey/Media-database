@@ -10,11 +10,9 @@ export default function Search() {
     //visible array 
     const [itemsSearch, setSearch] = useState([])
     const [message, setMessage] = useState('')
-    const [showRequestForm, setShowRequestForm] = useState(false);
 
     const navigate = useNavigate()
     
-
 
     // dummy data
     const [DataSearch,SetSearchData] = useState([])
@@ -113,14 +111,6 @@ return(
 
         </ul>
         <h3>{message}</h3>
-
-        {/* Button to toggle RequestForm */}
-        <button
-            className="request-form-button"
-            onClick={() => setShowRequestForm((prev) => !prev)}
-        >
-            {showRequestForm ? 'Hide Request Form' : 'Show Request Form'}
-        </button>
         </div>
 
 

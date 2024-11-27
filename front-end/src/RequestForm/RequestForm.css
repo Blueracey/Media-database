@@ -1,53 +1,100 @@
-.request-form-container {
-    border: 2px solid #ddd;
+.request-form-overlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f2f2f2; /* Light grey */
+    padding: 40px;
     border-radius: 8px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    background-color: #f9f9f9;
-  }
-  
-  .request-form-container h2 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px; /* Adjust the width to make it more compact */
+    z-index: 1000;
+}
+
+/* Style the title header */
+.request-form-title {
     text-align: center;
-    color: #333;
-  }
-  
-  .request-form-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .request-form-container label {
-    margin: 10px 0 5px;
-    color: #555;
-  }
-  
-  .request-form-container select,
-  .request-form-container textarea,
-  .request-form-container button {
-    margin-bottom: 15px;
-    padding: 10px;
-    font-size: 16px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+/* Style labels and inputs */
+.request-form-field label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.request-form-field input,
+.request-form-field select,
+.request-form-field textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .request-form-container button {
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+/* Adjust textarea height */
+.request-form-field textarea {
+    height: 4rem;
+    resize: none;
+}
+
+/* Buttons */
+.request-form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.request-form-buttons .submit-button {
     background-color: #007bff;
     color: #fff;
-    cursor: pointer;
     border: none;
-  }
-  
-  .request-form-container button:hover {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.request-form-buttons .submit-button:hover {
     background-color: #0056b3;
-  }
-  
-  .request-form-container button[type="button"] {
+}
+
+.request-form-buttons .cancel-button {
     background-color: #dc3545;
-  }
-  
-  .request-form-container button[type="button"]:hover {
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.request-form-buttons .cancel-button:hover {
     background-color: #a71d2a;
-  }
-  
+}
+
+/* Style for the bottom-right button */
+.request-form-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4caf50; /* Green button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000; /* Ensures it is above other elements */
+}
+
+.request-form-toggle:hover {
+    background-color: #45a049; /* Slightly darker green */
+}

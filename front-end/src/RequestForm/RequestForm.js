@@ -1,52 +1,119 @@
-import React, { useState } from 'react';
-import './RequestForm.css';
+import React, { useState } from "react";
+import axios from "axios"; // Import axios for making HTTP requests
+import "./RequestForm.css";
 
-export default function RequestForm() {
-  const [formData, setFormData] = useState({
-    type: '',
-    details: '',
-  });
+function RequestForm({ visible, onClose, loggedInUserId }) {
+    const [title, setTitle] = useState("");
+    const [requestType, setRequestType] = useState("Feature");
+    const [details, setDetails] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add any submission logic here, such as sending the data to a server
-  };
+        // Validation for title and details
+        if (!title.trim()) {
+            setErrorMessage("Title is required.");
+            return;
+        }
+        if (!details.trim()) {
+            setErrorMessage("Details are required.");
+            return;
+        }
 
-  return (
-    <div className="request-form-container">
-      <h2>Request Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="type">Request Type:</label>
-        <select name="type" id="type" value={formData.type} onChange={handleChange}>
-          <option value="">Select Type</option>
-          <option value="newMedia">New Media</option>
-          <option value="feature">Feature</option>
-          <option value="bug">Bug</option>
-          <option value="feedback">Feedback</option>
-          <option value="other">Other</option>
-        </select>
+        // Prepare data for backend
+        const requestData = {
+            title: title.trim(),
+            media_type: requestType,
+            details: details.trim(),
+            user_id: loggedInUserId, // Use dynamically provided logged-in user ID
+        };
 
-        <label htmlFor="details">Details:</label>
-        <textarea
-          name="details"
-          id="details"
-          rows="5"
-          placeholder="Enter details..."
-          value={formData.details}
-          onChange={handleChange}
-        />
+        try {
+            //Axios POST request to backend
+            const response = await axios.post("http://localhost:8091/api/requests", requestData);
+            console.log("Request submitted successfully:", response.data);
 
-        <button type="submit">Submit</button>
-        <button type="button" onClick={() => setFormData({ type: '', details: '' })}>
-          Clear
-        </button>
-      </form>
-    </div>
-  );
+            // Success message
+            alert("Request submitted successfully!");
+
+            // Clear the form after submission
+            setTitle("");
+            setRequestType("Feature");
+            setDetails("");
+            setErrorMessage(""); // Clear error messages
+
+            // Close the form
+            onClose();
+        } catch (error) {
+            console.error("Error submitting the request:", error);
+            alert("Failed to submit the request. Please try again.");
+        }
+    };
+
+    const handleCancel = () => {
+        // Reset form fields
+        setTitle("");
+        setRequestType("Feature");
+        setDetails("");
+        setErrorMessage(""); // Clear error messages
+
+        // Close the form
+        onClose();
+    };
+
+    return (
+        <div className={`request-form-overlay ${visible ? "" : "hidden"}`}>
+            <div className="request-form-title">Request Form</div>
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
+            <form onSubmit={handleSubmit} className="request-form-fields">
+                <div className="request-form-field">
+                    <label htmlFor="title">Title:</label>
+                    <input
+                        type="text"
+                        id="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="Enter title..."
+                    />
+                </div>
+                <div className="request-form-field">
+                    <label htmlFor="requestType">Request Type:</label>
+                    <select
+                        id="requestType"
+                        value={requestType}
+                        onChange={(e) => setRequestType(e.target.value)}
+                    >
+                        <option value="Feature">Feature</option>
+                        <option value="Bug">Bug</option>
+                        <option value="Improvement">Improvement</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div className="request-form-field">
+                    <label htmlFor="details">Details:</label>
+                    <textarea
+                        id="details"
+                        value={details}
+                        onChange={(e) => setDetails(e.target.value)}
+                        placeholder="Enter details..."
+                    ></textarea>
+                </div>
+                <div className="request-form-buttons">
+                    <button type="submit" className="submit-button">
+                        Submit
+                    </button>
+                    <button
+                        type="button"
+                        onClick={handleCancel}
+                        className="cancel-button"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    );
 }
+
+export default RequestForm;
