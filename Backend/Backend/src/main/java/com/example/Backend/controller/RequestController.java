@@ -22,31 +22,22 @@ public class RequestController {
 
     @PostMapping
     public ResponseEntity<?> createRequest(@RequestBody Request request) {
-        // Validate mediaType
+        // Validate media_type
         if (request.getMediaType() == null || request.getMediaType().isEmpty()) {
             return ResponseEntity.badRequest().body("Media Type is required.");
         }
-
         // Validate title
-        if (request.getTitle() == null || request.getTitle().trim().isEmpty()) {
+        if (request.getTitle() == null || request.getTitle().isEmpty()) {
             return ResponseEntity.badRequest().body("Title is required.");
         }
-
         // Validate details
-        if (request.getDetails() == null || request.getDetails().trim().isEmpty()) {
+        if (request.getDetails() == null || request.getDetails().isEmpty()) {
             return ResponseEntity.badRequest().body("Details are required.");
         }
-
-        try {
-            // Save the request if all validations pass
-            Request savedRequest = requestService.createRequest(request);
-            return new ResponseEntity<>(savedRequest, HttpStatus.CREATED);
-        } catch (Exception e) {
-            // Handle unexpected errors
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while processing the request.");
-        }
+        // Save the request if all validations pass
+        Request savedRequest = requestService.createRequest(request);
+        return new ResponseEntity<>(savedRequest, HttpStatus.CREATED);
     }
-
 
 
 

@@ -29,6 +29,7 @@ function RequestForm({ visible, onClose, loggedInUserId }) {
             details: details.trim(),
             // user_id: loggedInUserId, // Use dynamically provided logged-in user ID             // Commented out till User is Set up
         };
+        console.log("Request Data:", requestData);
 
         try {
             setIsSubmitting(true)

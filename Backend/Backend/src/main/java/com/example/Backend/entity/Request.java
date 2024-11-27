@@ -1,5 +1,6 @@
 package com.example.Backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,6 +22,8 @@ public class Request {
     private Timestamp createdAt;
 
     @Column(name = "media_type", nullable = false)
+    @JsonProperty("media_type")
+    @NotNull(message = "Media Type is required")
     private String mediaType;
 
     @Column(name = "title", nullable = false)
