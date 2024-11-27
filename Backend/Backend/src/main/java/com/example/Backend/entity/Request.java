@@ -50,9 +50,14 @@ public class Request {
         return details;
     }
 
-    public Collection<Object> getMediaType() {
-        return java.util.List.of();
+    public String getMediaType() {
+        return mediaType;
     }
+
+    public void setMediaType(String mediaType) {
+        this.mediaType = mediaType;
+    }
+
 
     // Uncomment when User is set up
     /*

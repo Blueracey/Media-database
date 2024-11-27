@@ -38,7 +38,12 @@ function RequestForm({ visible, onClose, loggedInUserId }) {
              console.log("Request Data: ", requestData);
 
             //Axios POST request to backend
-            const response = await axios.post("http://localhost:8091/api/requests", requestData);
+            const response = await axios.post("http://localhost:8091/api/requests", requestData, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            
             console.log("Request submitted successfully:", response.data);
 
             // Success message
