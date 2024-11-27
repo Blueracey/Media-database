@@ -20,6 +20,8 @@ public class Review {
     @JoinColumn(name = "media_id", nullable = false) // Foreign key to MediaDetails
     private MediaDetails mediaDetails;
 
+    private String user;
+
 //    @ManyToOne
 //    @JoinColumn(name = "user_id", nullable = true) // Foreign key to User
 //    private User user;
@@ -56,6 +58,9 @@ public class Review {
 
     public void setMediaDetails(MediaDetails mediaDetails) {
         this.mediaDetails = mediaDetails;
+    }
+    public String getUser(){
+        return user;
     }
 
 //    public User getUser() {

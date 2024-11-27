@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./MDetails.css";
+import { useNavigate } from "react-router-dom"
 
 export default function MDetails() {
+    const navigate = useNavigate()
     const { id } = useParams();
     const [details, setDetails] = useState(null);
     const [reviews, setReviews] = useState([]);
@@ -32,6 +34,11 @@ export default function MDetails() {
         fetchDetailsAndReviews();
     }, [id]);
 
+
+    const redirectToreview = () => {
+        navigate('/addreview')
+    }
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 
@@ -46,10 +53,12 @@ export default function MDetails() {
                     <h2>{details.title}</h2>
                     <p>Creator: {details.creator}</p>
                     <p>Details: {details.details}</p>
+                    
                 </div>
             </div>
             <div className="reviews-section">
                 <h3>Reviews</h3>
+                <button onClick={redirectToreview}>Create review</button>
                 {reviews.length > 0 ? (
                     <ul>
                         {reviews.map((review) => (

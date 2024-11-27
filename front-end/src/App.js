@@ -8,6 +8,7 @@ import AdminChoice from "./Admin/adminChoice";
 import MDetails from "./MDetails/MDetails";
 import RequestForm from "./RequestForm/RequestForm";
 import { useState } from "react";
+import AddReview from "./AddReview/AddReview";
 
 function App() {
     const [showRequestForm, setShowRequestForm] = useState(false);
@@ -41,6 +42,7 @@ function App() {
                     <Route path="adminSignIn" element={<AdminSignIn />} />
                     <Route path="adminChoice" element={<AdminChoice />} />
                     <Route path="details/:id" element={<MDetails />} />
+                    <Route path="addReview" element={<AddReview />} />
                 </Route>
             </Routes>
         </BrowserRouter>

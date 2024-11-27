@@ -24,9 +24,14 @@ public class ReviewController {
         return ResponseEntity.ok(reviews);
     }
 
+    //@PostMapping
+   // public ResponseEntity<Review> createReview(@RequestBody Review review) {
+    //    Review createdReview = reviewService.createReview(review);
+   //     return ResponseEntity.ok(createdReview);
+ //   }
+
     @PostMapping
-    public ResponseEntity<Review> createReview(@RequestBody Review review) {
-        Review createdReview = reviewService.createReview(review);
-        return ResponseEntity.ok(createdReview);
+    public ResponseEntity<?> addReview(@RequestBody Review review) {
+        return reviewService.addReview(review);
     }
 }
