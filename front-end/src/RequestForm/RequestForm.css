@@ -2,11 +2,11 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #f2f2f2; /* Light grey */
+    background-color: #f2f2f2; 
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px; /* Adjust the width to make it more compact */
+    max-width: 300px; 
     z-index: 1000;
 }
 
@@ -83,7 +83,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #4caf50; /* Green button color */
+    background-color: #4caf50; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -92,9 +92,15 @@
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
-    z-index: 1000; /* Ensures it is above other elements */
+    z-index: 1000; 
 }
 
 .request-form-toggle:hover {
-    background-color: #45a049; /* Slightly darker green */
+    background-color: #45a049; 
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
 }
