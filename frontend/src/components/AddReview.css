@@ -1,0 +1,110 @@
+
+.add-review {
+    margin: 20px;
+    padding: 30px;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: black;
+    font-family: 'Bell MT', sans-serif;
+}
+
+.add-review h2 {
+    margin-bottom: 15px;
+    font-size: 40px;
+}
+
+.add-review form div {
+    margin-bottom: 15px;
+}
+
+.add-review label, .add-review input, .add-review textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 25px;
+    color: black;
+    font-family: 'Bell MT', sans-serif;
+}
+
+.add-review textarea {
+    height: 100px;
+}
+
+.add-review input[type="text"], .add-review input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.star {
+    font-size: 40px;
+    cursor: pointer;
+    color: grey;
+    transition: color 0.2s;
+}
+
+.star.selected {
+    color: gold;
+}
+
+.add-review button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.add-review button:hover {
+    background-color: darkblue;
+}
+
+.add-review .cancel-button {
+    background-color: gray;
+}
+
+.add-review .cancel-button:hover {
+    background-color: darkgray;
+}
+
+.add-review .button-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.reviews-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.reviews-list li {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 20px;
+}
+
+
+.success-message {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
