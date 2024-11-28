@@ -36,7 +36,7 @@ export default function MDetails() {
 
 
     const redirectToreview = () => {
-        navigate('/addreview')
+        navigate(`/addreview/${id}`)
     }
 
     if (loading) return <div>Loading...</div>;

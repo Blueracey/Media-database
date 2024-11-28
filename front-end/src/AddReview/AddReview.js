@@ -1,13 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import './AddReview.css';
+import { useParams } from 'react-router-dom';
+import axios from 'axios'
 
 const AddReview = () => {
     const [review, setReview] = useState('');
     const [userId, setUserId] = useState('');
     const [rating, setRating] = useState(1);
     const [successMessage, setSuccessMessage] = useState('');
+    const { id } = useParams();
+    const [mediaDetails, setMediaDetails] = useState()
 
     const generateId = () => Math.floor(10000 + Math.random() * 90000);
+
+
+
+    useEffect(() => {
+        const fetchDetailsAndReviews = async () => {
+            try {
+
+                // Fetch reviews for the media
+                console.log(id)
+                const reviewsResponse = await axios.get(`http://localhost:8091/api/media/${id}`);
+                const data = await reviewsResponse.data;
+                setMediaDetails(data)
+                
+            } catch (err) {
+                console.error("Error fetching details or reviews:", err);
+                
+            } 
+        };
+
+        fetchDetailsAndReviews();
+    }, [id]);
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,7 +46,7 @@ const AddReview = () => {
         }
 
         const newReview = {
-            id: generateId(),
+            mediaDetails: mediaDetails,
             reviewText: review,
             user: userId, // Changed from name to userId
             rating,

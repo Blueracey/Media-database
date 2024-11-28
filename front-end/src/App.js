@@ -42,7 +42,7 @@ function App() {
                     <Route path="adminSignIn" element={<AdminSignIn />} />
                     <Route path="adminChoice" element={<AdminChoice />} />
                     <Route path="details/:id" element={<MDetails />} />
-                    <Route path="addReview" element={<AddReview />} />
+                    <Route path="addReview/:id" element={<AddReview />} />
                 </Route>
             </Routes>
         </BrowserRouter>
