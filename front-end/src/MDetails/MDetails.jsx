@@ -43,26 +43,39 @@ export default function MDetails() {
     if (error) return <div>{error}</div>;
 
     return (
-    <div class="core">
-        <div className="details-container">
-            <div className="details-header">
-                <div className="details-picture">
-                    <img src={details.pictureUrl} alt={details.title} />
+        <div className="media-details">
+            {/* Media Header */}
+            <div className="media-header">
+                <div className="media-picture">
+                    {details.picture_url ? (
+                        <img src={details.picture_url} alt={details.title} />
+                    ) : (
+                        <div className="picture-placeholder">Picture</div>
+                    )}
                 </div>
-                <div className="details-info">
-                    <h2>{details.title}</h2>
-                    <p>Creator: {details.creator}</p>
-                    <p>Details: {details.details}</p>
-                    
+                <div className="media-info">
+                    <h2 className="media-title">{details.title}</h2>
+                    <p className="media-creator">Creator: {details.creator}</p>
+                    <hr className="divider" />
+                    <p className="media-average">Review Average: {details.averageRating || "N/A"}</p>
+                    <hr className="divider" />
+                    <p className="media-count">Number of Reviews: {reviews.length}</p>
                 </div>
             </div>
+
+            {/* Media Description */}
+            <div className="media-description">{details.details || "No description available."}</div>
+
+            {/* Reviews Section */}
             <div className="reviews-section">
                 <h3>Reviews</h3>
-                <button onClick={redirectToreview}>Create review</button>
+                <button onClick={redirectToreview} className="add-review-button">
+                    Create Review
+                </button>
                 {reviews.length > 0 ? (
                     <ul>
                         {reviews.map((review) => (
-                            <li key={review.id}>
+                            <li key={review.id} className="review-item">
                                 <p>{review.reviewText}</p>
                                 <p>Rating: {review.rating}</p>
                             </li>
@@ -73,6 +86,5 @@ export default function MDetails() {
                 )}
             </div>
         </div>
-    </div>
     );
 }
