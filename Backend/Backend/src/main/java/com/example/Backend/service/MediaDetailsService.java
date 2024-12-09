@@ -2,9 +2,11 @@ package com.example.Backend.service;
 
 import com.example.Backend.entity.MediaDetails;
 import com.example.Backend.entity.Review;
+import com.example.Backend.entity.Search;
 import com.example.Backend.repository.MediaDetailsRepository;
 import com.example.Backend.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.OptionalDouble;
@@ -42,5 +44,10 @@ public class MediaDetailsService {
     // Fetch all MediaDetails
     public List<MediaDetails> getAllMediaDetails() {
         return mediaDetailsRepository.findAll();
+    }
+
+    public MediaDetails createMedia(@RequestBody MediaDetails mediaDetails){
+
+        return mediaDetailsRepository.save(mediaDetails);
     }
 }

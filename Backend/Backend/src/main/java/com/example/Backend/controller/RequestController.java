@@ -1,6 +1,7 @@
 package com.example.Backend.controller;
 
 import com.example.Backend.entity.Request;
+import com.example.Backend.entity.Search;
 import com.example.Backend.service.RequestService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,12 @@ public class RequestController {
 
     public RequestController(RequestService requestService) {
         this.requestService = requestService;
+    }
+
+
+    @GetMapping
+    public List<Request> getAllRequests() {
+        return requestService.getAllRequests();
     }
 
     @PostMapping

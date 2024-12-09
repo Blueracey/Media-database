@@ -1,6 +1,7 @@
 package com.example.Backend.controller;
 
 import com.example.Backend.entity.MediaDetails;
+import com.example.Backend.entity.Search;
 import com.example.Backend.service.MediaDetailsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,12 @@ public class MediaDetailsController {
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
+    }
+
+    @PostMapping
+    public MediaDetails createSearch(@RequestBody MediaDetails mediaDetails){ 
+ 
+        return mediaDetailsService.createMedia(mediaDetails);
     }
 
     @GetMapping("/all")
