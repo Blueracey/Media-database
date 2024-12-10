@@ -3,8 +3,8 @@ import "./App.css";
 import Layout from "./Nav/NavLayout";
 import Home from "./Home";
 import Search from "./Search/Search";
-import AdminSignIn from "./Admin/adminSignIn";
-import AdminChoice from "./Admin/adminChoice";
+import Admin from "./Admin/Admin";
+
 import MDetails from "./MDetails/MDetails";
 import RequestForm from "./RequestForm/RequestForm";
 import { useState } from "react";
@@ -39,8 +39,8 @@ function App() {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="search" element={<Search />} />
-                    <Route path="adminSignIn" element={<AdminSignIn />} />
-                    <Route path="adminChoice" element={<AdminChoice />} />
+                    <Route path="admin" element={<Admin/>} />
+
                     <Route path="details/:id" element={<MDetails />} />
                     <Route path="addReview/:id" element={<AddReview />} />
                 </Route>

@@ -14,7 +14,7 @@ export default function Search() {
     const navigate = useNavigate()
     
 
-    // dummy data
+
     const [DataSearch,SetSearchData] = useState([])
     useEffect(() => {
         const fetchProject = async () => {
