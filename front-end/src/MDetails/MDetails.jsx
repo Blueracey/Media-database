@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./MDetails.css";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 export default function MDetails() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { id } = useParams();
     const [details, setDetails] = useState(null);
     const [reviews, setReviews] = useState([]);
@@ -20,7 +20,7 @@ export default function MDetails() {
                 setDetails(detailsData);
 
                 // Fetch reviews for the media
-                const reviewsResponse = await fetch(`http://localhost:8091/api/v1/reviews/${id}`);
+                const reviewsResponse = await fetch(`http://localhost:8091/api/reviews/media/${id}`);
                 const reviewsData = await reviewsResponse.json();
                 setReviews(reviewsData);
             } catch (err) {
@@ -34,10 +34,9 @@ export default function MDetails() {
         fetchDetailsAndReviews();
     }, [id]);
 
-
     const redirectToreview = () => {
-        navigate(`/addreview/${id}`)
-    }
+        navigate(`/addreview/${id}`);
+    };
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
@@ -46,25 +45,22 @@ export default function MDetails() {
         <div className="media-details">
             {/* Media Header */}
             <div className="media-header">
-                <div className="media-picture">
-                    {details.picture_url ? (
-                        <img src={details.picture_url} alt={details.title} />
-                    ) : (
-                        <div className="picture-placeholder">Picture</div>
-                    )}
-                </div>
                 <div className="media-info">
                     <h2 className="media-title">{details.title}</h2>
                     <p className="media-creator">Creator: {details.creator}</p>
                     <hr className="divider" />
-                    <p className="media-average">Review Average: {details.averageRating || "N/A"}</p>
+                    <p className="media-average">
+                        Review Average: {details.reviewAverage ? details.reviewAverage.toFixed(1) : "N/A"}
+                    </p>
                     <hr className="divider" />
-                    <p className="media-count">Number of Reviews: {reviews.length}</p>
+                    <p className="media-count">Number of Reviews: {details.numberOfReviews}</p>
                 </div>
             </div>
 
             {/* Media Description */}
-            <div className="media-description">{details.details || "No description available."}</div>
+            <div className="media-description">
+                {details.details || "No description available."}
+            </div>
 
             {/* Reviews Section */}
             <div className="reviews-section">
@@ -74,9 +70,9 @@ export default function MDetails() {
                 </button>
                 {reviews.length > 0 ? (
                     <ul>
-                        {reviews.map((review) => (
-                            <li key={review.id} className="review-item">
-                                <p>{review.reviewText}</p>
+                        {reviews.map((review, index) => (
+                            <li key={index} className="review-item">
+                                <p>{review.comment}</p>
                                 <p>Rating: {review.rating}</p>
                             </li>
                         ))}
