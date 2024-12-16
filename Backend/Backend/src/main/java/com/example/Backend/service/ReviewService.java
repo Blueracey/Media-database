@@ -31,6 +31,7 @@ public class ReviewService {
             formattedReview.put("title", review.getMediaDetails().getTitle());
             formattedReview.put("rating", review.getRating());
             formattedReview.put("comment", review.getReviewText());
+            formattedReview.put("user", review.getUser() != null ? review.getUser() : "Mystery");
 //            formattedReview.put("username", review.getUser() != null ? review.getUser().getUsername() : "Anonymous");
             return formattedReview;
         }).collect(Collectors.toList());
