@@ -1,0 +1,43 @@
+README
+
+The media Database is a website created to organize the reviews on a vertiety of media. the goal was to create something adaptable to the needs of the user.
+
+
+SetUp instructions 
+
+
+the database is a sql database using sql workbench is recomended, a sql file is provided to create the database
+
+
+
+The backend need to be provided a password a username  and it's URL for the database in the application.properties file in resources whcih is in src
+
+
+
+do not change the host of the backend it is hardcoded and it a pain to change 
+
+
+for the front end a npm install should be all it need to get running 
+
+
+
+
+make sure both backend and frontened are running before atempting to use 
+
+
+
+
+
+
+aside from that there is not way to actually get to the admin page other then to change the url to /admin due to the fact Moriba never intergrated his feature 
+
+
+
+speaking of just for ease of marking 
+
+Corbyn - Admin, Search and database
+Keegan - Media details and Request Form 
+Ayo - Revieww Form and Ads
+Moriba - sign in and registration 
+
+
